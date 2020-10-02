@@ -72,14 +72,20 @@ void setup()
 	pinMode(led2, OUTPUT);
 	pinMode(button1, INPUT_PULLUP);
 
+	//deklarasi Set Instance Task hanya boleh 1x
 	setInstanceTask(startTask);
+
+	//deklarasi Set End Task hanya hanya boleh 1x
 	setEndTask(endTask);
 	
+
+	//Task Scheduller maksimal 8 Task
+
 	//parameter
 	//1. Nama fungsi
-	//2. ID dalam string (maksimal 6 karakter), dalam string
+	//2. ID dalam string (maksimal 6 karakter), harus unik (tidak boleh sama)
 	//3. delay start awal
-	//4. Delay dalam ms
+	//4. Delay pengulangan dalam ms
 	//   fungsi T = 1000/f
 	//   jika 1Hz maka T = 1000/ 1 = 1000
 	addTask(loop1Hz, "Loop1", 0, 1000);
@@ -87,9 +93,9 @@ void setup()
 
 	//parameter
 	//1. Nama fungsi
-	//2. ID dalam string (maksimal 6 karakter), dalam string
+	//2. ID dalam string (maksimal 6 karakter), harus unik (tidak boleh sama)
 	//3. delay start awal
-	//4. Delay dalam ms
+	//4. Delay pengulangan dalam ms
 	//   fungsi T = 1000/f
 	//   jika 2Hz maka T = 1000/ 2 = 500
 	addTask(loop2Hz, "Loop2", 0, 500);
